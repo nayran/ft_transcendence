@@ -6,4 +6,4 @@ Everything has to be launch by a single call to:
 
 # About
 
-This project was built in pair with @iwillenshofer and @romanbtt - thanks for everything, my friends.
+This project was built in pair with [Igor](https://github.com/iwillenshofer) and [Roman](https://github.com/romanbtt) - thanks for everything, my friends.
