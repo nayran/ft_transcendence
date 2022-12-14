@@ -3,6 +3,7 @@
 Everything has to be launch by a single call to: 
 ``` docker-compose up --build ```
 
+And you must have our .env file
 
 # About
 
