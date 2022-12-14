@@ -4,16 +4,6 @@ Everything has to be launch by a single call to:
 ``` docker-compose up --build ```
 
 
-# Project Setup
+# About
 
-In the /home/node/srcs directory, the following commands were run:
-
-```
-	ng new frontend
-	nest new backend
-```
-
-# References:
-
-https://github.com/nodejs/docker-node/blob/main/docs/BestPractices.md
-
+This project was built in pair with @iwillenshofer and @romanbtt - thanks for everything, my friends.
