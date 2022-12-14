@@ -1,0 +1,46 @@
+$game-font-family: "Roboto", "Futura", sans-serif;
+
+@mixin table {
+    width: calc(100%);
+    height: calc(100% - 100px);
+    background-color: #555555;
+    border: 5px solid #999999;
+}
+
+@mixin lines {
+    background-image: linear-gradient(to bottom, #999999 50%, #555555 50%);
+    background-size: 30px 30px;
+    background-repeat: repeat-y;
+    position: absolute;
+    width: 15px;
+    height: calc(100% - 130px);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 110px;
+}
+
+@mixin score($font-size, $width) {
+    color: white;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: space-between;
+    font-family: $game-font-family;
+    font-size: $font-size;
+    min-width: $width;
+    opacity: 0.75;
+}
+
+@mixin button($width, $font-size) {
+    button {
+        height: 7vh;
+        line-height: 2vh;
+        width: $width;
+        cursor: pointer;
+        font-size: $font-size;
+        opacity: .75;
+        display: block;
+		margin-top: 10px;
+    }
+}

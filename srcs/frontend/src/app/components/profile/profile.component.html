@@ -1,0 +1,127 @@
+<app-navbar></app-navbar>
+
+
+
+
+
+<div class="container-fluid mt--7">
+    <div class="row padding justify-content-md-center">
+      
+
+
+
+
+        <div class="col-lg-3  mb-3">
+            <div class="card card-profile bg-secondary shadow minheight">
+
+
+				
+
+
+
+
+				<div class="row justify-content-center">
+					<div class="col order-lg-2 text-center">
+					<div class="card-profile-image">
+						<img src="backend/{{ this.userSubject.value?.avatar_url }}" class="rounded-circle">
+					</div>
+					</div>
+					</div>
+					<div class="card-body pt-0 pt-md-4">
+						<div class="row ">
+							<div class="col mt-4  text-center">
+							<h1>{{ this.userSubject.value?.fullname }}</h1>
+							</div>
+						</div>
+						<div class="row  text-center" >
+							<div class="col">
+							<h3>{{ this.userSubject.value?.username }}</h3>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+            </div>
+        </div> <!--div class="col-sm-3  mb-3"-->
+      
+        <div class="col-lg-7  mb-15 pb-15">
+            
+			<div class="card bg-secondary shadow minheight">
+                <div class="card-header bg-secondary text-white border-0">
+                    Settings
+                </div>
+                <div class="card-body  bg-white user-list-card ">
+
+					
+
+
+					<div class="card-block">
+						<p>
+							<button class="btn btn-secondary" type="button" data-bs-toggle="collapse"
+								data-bs-target="#collapseUsername" aria-expanded="false"
+								aria-controls="collapseUsername">
+								Change Username
+							</button>
+						</p>
+						<div class="collapse" id="collapseUsername">
+							<div class="card card-body">
+								<app-dialog-username></app-dialog-username>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="card-block">
+						<p>
+							<button class="btn btn-secondary" type="button" data-bs-toggle="collapse"
+								data-bs-target="#collapsePicture" aria-expanded="false"
+								aria-controls="collapsePicture">
+								Change Profile Picture
+							</button>
+						</p>
+						<div class="collapse" id="collapsePicture">
+							<div class="card card-body">
+								<app-dialog-avatar></app-dialog-avatar>
+							</div>
+						</div>
+					</div>
+
+					<div class="card-block">
+						<p>
+							<button class="btn btn-secondary" type="button" *ngIf="!tfa_enabled"
+								data-bs-toggle="collapse" data-bs-target="#collapseTfa" aria-expanded="false"
+								aria-controls="collapseTfa">
+								Enable Two Factor Authentication
+							</button>
+							<button class="btn btn-primary" type="button" *ngIf="tfa_enabled"
+								(click)="disableTfa()">Disable TFA</button>
+						</p>
+						<div class="collapse" id="collapseTfa">
+							<div class="card card-body">
+								<app-twofactor></app-twofactor>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+			
+        </div> <!--div class="col-sm-6  mb-3 "-->
+      
+       
+
+
+    </div><!--div class="row padding"-->
+
+</div>

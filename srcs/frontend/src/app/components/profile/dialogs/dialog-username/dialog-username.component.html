@@ -1,0 +1,31 @@
+    <div class="text-center">
+        <form [formGroup]="form" (ngSubmit)="updateName(username.value)">
+
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>New Username</mat-label>
+                <input type="text" matInput placeholder="Username" formControlName="username">
+                <mat-error *ngIf="username.touched && username.hasError('required')">Username is required</mat-error>
+                <mat-error *ngIf="username.touched && username.hasError('minlength')">Username must contain at least 3
+                    characters
+                </mat-error>
+                <mat-error *ngIf="username.touched && username.hasError('maxlength')">Username must be no more than 10
+                    characters
+                </mat-error>
+                <mat-error *ngIf="username.touched && username.hasError('pattern')">Username may only contain lowercase
+                    letters
+                    and
+                    numbers
+                </mat-error>
+                <mat-error *ngIf="username.touched && username.hasError('usernameTaken')">Username is already taken
+                </mat-error>
+                <mat-error *ngIf="username.touched && username.hasError('forbiddenName')">Username must be different
+                    than {{ username.value }}
+                </mat-error>
+            </mat-form-field>
+
+            <div class="button">
+                <button class="btn btn-secondary" type="submit" [disabled]="!form.valid">Change</button>
+            </div>
+
+        </form>
+</div>

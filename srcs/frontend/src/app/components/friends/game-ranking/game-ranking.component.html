@@ -1,0 +1,30 @@
+<div class="card-body user-list-card">
+
+
+
+	<div *ngFor="let item of this.friendsService.rankingList.value; let i = index"
+		class="row  d-flex align-items-center user-list">
+		<div class="col-2 rank">
+			<div class="number"><p class="nb{{ i + 1 }}">{{ i + 1 }}</p></div>
+			<div class="ordinal "><p class="nb{{ i + 1 }}">{{ this.getOrdinal(i+1) }}</p></div>
+		</div>
+		<div class="col-3 min-margin align-items-left">
+			<app-thumbnail [username]="item.username" size="small" [avatar]="item.avatar_url"></app-thumbnail>
+		</div>
+		<div class="col-5 align-middle">
+			<span class="align-middle align-self-center name">
+				<span (click)="this.friendsService.loadUser(item.username)"
+					class="align-middle align-self-center name">{{ item.username }}</span>
+			</span>
+		</div>
+		<div class="col-2">
+
+			<img src="{{this.friendsService.getRankingImage(item.rating)}}"   matTooltip="{{item.rating}}" class="user-list-rank">
+
+
+		</div>
+	</div>
+
+
+
+</div>

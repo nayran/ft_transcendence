@@ -1,0 +1,15 @@
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	mat-form-field {
+		width: 100%;
+		min-width: 100%;
+	}
+
+	.button {
+		display: flex;
+		justify-content: flex-end;
+	}
+}

@@ -1,0 +1,6 @@
+<canvas #game class="table" width="1280" height="720"></canvas>
+<div class="waiting" *ngIf="isWaiting || finished">
+    <p class="waiting__title" *ngIf="isWaiting">Waiting for another player</p>
+    <button [ngClass]="{'btn btn-secondary quit' : true, 'quitfinish': finished}" (click)="esc()">Quit</button>
+</div>
+<img id="powerUp" width="100" height="100" src="/assets/images/powerUp.png" alt="power up">

@@ -1,0 +1,172 @@
+
+  
+  .container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  
+  h1 {
+    margin-bottom: 0px;
+    font-weight: bold;
+  }
+  .container-fluid {
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+  .padding {    
+	margin-top:30px; 
+	margin-bottom:100px;
+  }
+  
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    border: 1px solid rgba(0, 0, 0, .05);
+    border-radius: .375rem;
+    background-color: #fff;
+    background-clip: border-box;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+    flex: 1 1 auto;
+  }
+  
+  .card-header {
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    background-color: #fff;
+  }  
+  
+  .card-profile {
+    color: white;
+  }
+
+
+.user-list { 
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+
+@media  (min-width: 0px){
+    .col-sm-3 {
+        max-width: 100%;
+        flex: 0 0 100%;
+      }
+      .col-sm-6 {
+        max-width: 100%;
+        flex: 0 0 100%;
+      }
+}
+
+@media  (min-width: 720px){
+    .col-sm-3 {
+        max-width: 33.33333%;
+        flex: 0 0 33.33333%;
+      }
+      .col-sm-6 {
+        max-width: 66.6666%;
+        flex: 0 0 66.6666%;
+      }
+}
+
+@media  (min-width: 1200px){
+    .col-sm-3 {
+        max-width: 25%;
+        flex: 0 0 25%;
+      }
+      .col-sm-6 {
+        max-width: 50%;
+        flex: 0 0 50%;
+      }
+}
+
+@media (min-width: 0px){
+    .right-tab {
+        max-width: 33.3333%;
+        flex: 0 0 33.3333%;
+      }
+}
+
+@media (min-width: 1200px){
+    .right-tab {
+        max-width: 100%;
+        flex: 0 0 100%;
+        margin-bottom: 15px;
+      }
+}
+
+
+
+
+
+.large-stats-holder {
+    overflow-x: scroll;
+    padding: 0px;
+    min-height: 200px;
+    display: flex;
+    img {
+        margin: auto;
+    }
+}
+.large-stats {
+    white-space: nowrap;
+    text-overflow:unset;
+    overflow-x: scroll;
+    margin: auto;
+    span {
+        font-size: 72px;
+        line-height: 72px;
+        color: gold;
+    }
+}
+
+
+
+
+.card-profile-image {
+    position: relative;
+    margin-top: 30px;
+    img {
+        height: 180px;
+        width: 180px;
+        max-width: 180px;
+        border-radius: .375rem;
+        aspect-ratio: 1;
+        object-fit: cover;
+    }
+}
+ 
+  .card-profile-stats {
+    padding: 1rem 0;
+  }
+  
+  .card-profile-stats>div {
+    margin-right: 1rem;
+    padding: .875rem;
+    text-align: center;
+  }
+  
+  
+  .description {
+    font-size: .875rem;
+  }
+  
+  .heading {
+    font-size: .95rem;
+    font-weight: 600;
+    letter-spacing: .025em;
+    text-transform: uppercase;
+  }
+
+  .minheight {
+	min-height: 400px;
+  }

@@ -1,0 +1,204 @@
+@import url('http://fonts.cdnfonts.com/css/old-computer-st');
+
+
+#user {
+  margin-left: auto;
+  margin-right: 5px;
+}
+
+.right-menu {
+  height: 100%;
+
+  .profile {
+    display: inline-block;
+    text-align: right;
+    vertical-align: middle;
+    height: 100%;
+
+    .control-buttons {
+      display: block;
+      text-align: right;
+      margin-top: 25px;
+      margin-right: 8px;
+
+      >ul {
+        display: flex;
+        justify-content: flex-end;
+
+        >li {
+          color: gray;
+          margin-left: 8px;
+          cursor: pointer;
+        }
+      }
+    }
+
+  }
+
+  .right-controls {
+    display: inline-block;
+
+    .avatar {
+      margin-left: 15px;
+      margin-right: 15px;
+      height: 70px;
+      width: 70px;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+
+    >button {
+      margin-right: 10px;
+    }
+  }
+
+
+}
+
+.left-menu {
+  flex-basis: auto;
+  display: flex !important;
+  flex-grow: 1;
+  align-items: center;
+}
+
+
+.right-link {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: .5rem;
+  padding-left: .5rem;
+  color: rgba(255, 255, 255, .5);
+  cursor: pointer;
+}
+
+.navbar-brand {
+  cursor: pointer;
+  float: left;
+}
+
+.nav-item {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.navbar-collapse {
+  flex-basis: auto;
+}
+
+.navbar {
+  min-width: 315px;
+  height: 86px;
+}
+
+.nav-item:hover,
+.nav-item:active,
+.link-active {
+  border-bottom-width: 2px;
+  border-bottom-color: orange;
+  border-bottom-style: solid;
+}
+
+.navbar-expand-lg .navbar-nav {
+  flex-direction: row;
+}
+
+.navbar-icon-top .navbar-nav .nav-link>fa-icon {
+  position: relative;
+  width: 18px;
+  font-size: 16px;
+  top: 3px;
+  line-height: 12px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.nav-link {
+  padding-right: .5rem;
+  padding-left: .5rem;
+  text-align: center;
+}
+
+
+.nav-title {
+  display: none;
+}
+
+#logo {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 20px;
+  background-image: url("/assets/images/logo-s.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media (min-width: 0px) {
+  .username {
+    display: none;
+	font: 400 14px/20px Roboto, sans-serif;
+  }
+
+  .avatar {
+    display: none;
+  }
+}
+
+@media (min-width: 500px) {
+  .username {
+    display: block;
+  }
+
+  .avatar {
+    display: unset;
+  }
+
+  .right-menu .profile .control-buttons {
+    margin-top: 0px;
+    margin-right: 0px;
+  }
+}
+
+@media (min-width: 600px) {
+  .navbar-icon-top .navbar-nav .nav-link>fa-icon {
+    width: 24px;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 6px;
+    display: block;
+    text-align: center;
+  }
+
+
+  #logo {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (min-width: 700px) {
+  #logo {
+    width: 170px;
+    height: 70px;
+    margin-right: 0px;
+    background-image: url("/assets/images/logo-p.svg");
+  }
+
+  .navbar-icon-top .navbar-nav .nav-link>fa-icon {
+    width: 36px;
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 800px) {
+  .nav-title {
+    display: unset;
+  }
+
+}

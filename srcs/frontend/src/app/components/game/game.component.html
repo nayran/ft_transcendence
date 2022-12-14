@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+<div #table class="table" *ngIf="menu">
+    <div class="menu">
+        <p class="menu__title">Play</p>
+        <button class="btn btn-secondary" *ngIf="!cmenu" (click)="startGame('random')">vs Random</button>
+        <!-- <button>vs Friend</button> -->
+        <button class="btn btn-secondary" *ngIf="!cmenu" (click)="toggleLiveGames()">Live Games</button>
+        <button class="btn btn-secondary" *ngIf="!cmenu" (click)="toggleInstructions()">Instructions</button>
+        <button class="btn btn-secondary" *ngIf="cmenu" (click)="startGame('friend')">Challenge</button>
+        <label class="container">
+            Power-ups
+            <input type="checkbox" (change)="togglePowerUps()">
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <div *ngIf="!showLiveGames" class="instructions">
+        <p class="subtitle">INSTRUCTIONS:</p>
+        <p><span class="badge bg-secondary">W</span> or <span class="badge bg-secondary">Up</span> - Move up</p>
+        <p><span class="badge bg-secondary">S</span> or <span class="badge bg-secondary">Down</span> - Move down</p>
+        <!-- <p>[P] - Pause</p> -->
+    </div>
+    <div *ngIf="showLiveGames" class="livegames">
+        <p class="subtitle">LIVE GAMES:</p>
+        <p *ngIf="!liveGames">No one is playing right now!</p>
+        <button class="btn btn-secondary" *ngFor="let game of liveGames"
+            (click)="watchGame(game.player1.socket)">{{game.player1.username}}<br>vs<br>
+            {{game.player2.username}}</button>
+    </div>
+</div>
+<app-online-game *ngIf="mode == 'random' || mode == 'spec' || mode == 'friend'" [specGame]="toWatch" [mode]="mode"
+    [challenged]="challenged" [powerUps]="powerUps" (quit)="quit($event)">
+</app-online-game>
+<!-- <app-offline-game *ngIf="mode == 'off' || mode == 'computer'"></app-offline-game> -->
+<div class="lines" *ngIf="mode != 'random' && mode != 'friend' && mode != 'spec'"></div>

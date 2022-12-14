@@ -1,0 +1,28 @@
+
+.title {
+	color: gold;
+	font-size: 33px;
+}
+.subtitle {
+	color: white;
+	display: block;
+}
+  
+.achievement {
+	max-width: 60px;
+	scale: 1;
+	margin-right:5px;
+}
+
+.statsitem {
+	width: 100%;
+	margin-top: 5px;
+	background-color: rgb(83, 83, 83);
+	text-align: left;
+	line-height: 18px;
+	.badge {
+		background-color: gold;
+		font-size: 10px;
+		float:right;
+	}
+}

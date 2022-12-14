@@ -1,0 +1,68 @@
+<div *ngIf="!isMyMember(); else myMember">
+
+		<button class="btn btn-secondary btn-sm"  title="{{selectedMember.user.username}} profile"  (click)="profile(selectedMember.user.username)" routerLink="/friends">
+        <fa-icon  class="iconsMember" [icon]="faProfile">
+        </fa-icon>
+		</button>
+
+		<button class="btn btn-secondary btn-sm"  title=" Challenge {{selectedMember.user.username}}"  (click)="challenge(selectedMember.user.username)" routerLink="/pong">
+        <fa-icon class="iconsMember" [icon]="faPaddle"
+           >
+        </fa-icon>
+		</button>
+
+		<button class="btn btn-secondary btn-sm" *ngIf="!isBlocked; else blocked_user" title="Block {{selectedMember.user.username}}"
+			(click)="blockUser(selectedMember)">
+        <fa-icon    class="iconsMember" [icon]="faLock" >
+        </fa-icon>
+		</button>
+        <ng-template #blocked_user>
+			<button class="btn btn-secondary btn-sm" title="Unblock {{selectedMember.user.username}}"   (click)="unblockUser(selectedMember)">
+            <fa-icon class="iconsMember" style="color: grey;"
+                [icon]="faUnlock">
+            </fa-icon>
+			</button>
+        </ng-template>
+
+		<button class="btn btn-secondary btn-sm"  *ngIf="displaySetAsAdmin(selectedMember) && !isAdmin" title="Add the administrator role to {{selectedMember.user.username}}" (click)="setAsAdmin(selectedMember)">
+        <fa-icon
+             class="iconsMember" [icon]="fasStar"
+            (click)="setAsAdmin(selectedMember)">
+        </fa-icon>
+		</button>
+    
+		<button class="btn btn-secondary btn-sm" *ngIf="amIOwner && isAdmin"  title="Remove the administrator role to {{selectedMember.user.username}}" (click)="unsetAdmin(selectedMember)">
+        <fa-icon 
+            class="iconsMember" [icon]="farStar">
+        </fa-icon>
+		</button>
+
+		<div class="btn-group"  *ngIf="((amIOwner || amIAdmin) && !isOwner && !isAdmin)">
+			<button class="btn btn-secondary btn-sm dropdown-toggle btnpadding" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Mute
+			</button>
+			<ul class="dropdown-menu">
+				<li><a class="dropdown-item" (click)="setMute('1min')">1min</a></li>
+				<li><a class="dropdown-item" (click)="setMute('5min')">5min</a></li>
+				<li><a class="dropdown-item" (click)="setMute('1h')">1h</a></li>
+				<li><a class="dropdown-item"(click)="setMute('24h')">24h</a></li>
+			</ul>
+    	</div>
+		<div class="btn-group"  *ngIf="((amIOwner || amIAdmin) && !isOwner && !isAdmin)">
+			<button class="btn btn-secondary btn-sm dropdown-toggle btnpadding" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Ban
+			</button>
+			<ul class="dropdown-menu">
+				<li><a class="dropdown-item" (click)="setBan('1min')">1min</a></li>
+				<li><a class="dropdown-item" (click)="setBan('5min')">5min</a></li>
+				<li><a class="dropdown-item" (click)="setBan('1h')">1h</a></li>
+				<li><a class="dropdown-item"(click)="setBan('24h')">24h</a></li>
+			</ul>
+    	</div>
+
+
+</div>
+
+<ng-template #myMember>
+    <p>Player since {{ selectedMember.user.created_at | date}}</p>
+</ng-template>

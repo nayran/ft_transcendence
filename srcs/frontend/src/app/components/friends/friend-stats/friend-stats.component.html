@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="col-4">
+		<img class="achievement" src="{{this.rating_image.value}}">
+	</div>
+	<div class="col-8">
+		<div class="row">
+			<div class="col">
+				<span class="badge statsitem text-light">
+						Games Played
+						<span class="badge rounded-pill bg-warning text-dark">{{this.friendsService.stats.value?.games_played}}</span>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<span class="badge statsitem text-light">
+						Games Won
+						<span class="badge rounded-pill bg-warning text-dark">{{this.friendsService.stats.value?.games_won}}</span>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>

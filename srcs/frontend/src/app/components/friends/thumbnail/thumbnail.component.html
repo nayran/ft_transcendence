@@ -1,0 +1,21 @@
+
+<div *ngIf="(this.dropdown) && !(this.username == this.authService.userSubject.value?.username ?? '')"  class="dropdown">
+	<button class="btn  btn-{{ !(this.light) ? 'secondary' : 'light'} dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false"  type="button" >
+
+	<div class="image-wrap size-{{ this.size }}">
+			<img src="backend/{{ this.avatar }}" class="rounded-circle size-{{ this.size }} {{  this.onlineService.getOnline(this.username) }}">
+			<fa-icon [icon]="icon[0]"></fa-icon>
+	</div>
+	</button>
+	<ul class="dropdown-menu {{ !(this.light) ? 'dropdown-menu-dark' : ''}}">
+		<div class="dropdown-top">
+			<span class="dropdown-status {{  this.onlineService.getOnline(this.username) }}">{{  this.onlineService.getOnline(this.username) }}</span>
+		</div>
+		<li><a (click)="this.friendService.loadUser(this.username)" class="dropdown-item" ><fa-icon [icon]="icon[3]"></fa-icon><span class="name">Profile</span></a></li>
+		<li><a routerLink="/pong" (click)="this.challenge(this.username)" *ngIf="this.onlineService.getOnline(this.username) == 'online'" class="dropdown-item"><fa-icon [icon]="icon[1]"></fa-icon><span class="name">Play</span></a></li>
+		<li><a routerLink="/pong" (click)="this.specFriend(this.username)" *ngIf="this.onlineService.getOnline(this.username) == 'ingame'" class="dropdown-item"><fa-icon [icon]="icon[2]"></fa-icon><span class="name">Watch</span></a></li>
+	</ul>
+  </div>
+  <div class=" nobutton btn" *ngIf="!(this.dropdown) || this.username == this.authService.userSubject.value?.username ?? ''">
+  <img src="backend/{{ this.avatar }}" class="rounded-circle size-{{ this.size }} {{  this.onlineService.getOnline(this.username) }}">
+</div>

@@ -1,0 +1,131 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid mt--7 mb-15">
+    <div class="row padding">
+
+
+
+        <div class="col-xl-3 mb-3" *ngIf="router.url !== '/home'">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button (click)="this.friendsService.updateFriendsList()" class="nav-link active"
+                        id="nav-myfriends-tab" data-bs-toggle="tab" data-bs-target="#nav-myfriends" type="button"
+                        role="tab" aria-controls="nav-myfriends" aria-selected="true">My Friends</button>
+                    <button (click)="this.friendsService.updateRequestsList()" class="nav-link" id="nav-requests-tab"
+                        data-bs-toggle="tab" data-bs-target="#nav-requests" type="button" role="tab"
+                        aria-controls="nav-requests" aria-selected="false">Requests</button>
+                    <button class="nav-link" id="nav-search-tab" data-bs-toggle="tab" data-bs-target="#nav-search"
+                        type="button" role="tab" aria-controls="nav-search" aria-selected="false">Search</button>
+                </div>
+            </nav>
+
+            <div class="card bg-secondary shadow min-height-lg2">
+
+                <app-friends-list></app-friends-list>
+
+            </div>
+        </div>
+        <!--div class="col-xl-3 ">-->
+
+
+        <div *ngIf="!(this.friendsService.selectedUser.value)" class="col-xl-9 mb-3 text-center text-warning">
+            <br>No Friend Selected
+        </div>
+
+
+
+
+
+        <div *ngIf="(this.friendsService.selectedUser.value)" class="col-sm-3  mb-3 ">
+            <div class="card card-profile bg-secondary shadow  min-height-lg">
+
+                <app-friend-profile></app-friend-profile>
+
+            </div>
+        </div>
+        <!--div class="col-sm-3  mb-3"-->
+
+        <div *ngIf="(this.friendsService.selectedUser.value)" class="col-sm-3  mb-3 ">
+            <div class="row   mb-3 ">
+                <div class="col">
+                    <div
+                        class="card bg-secondary shadow {{ this.router.url === '/home' ? 'min-height-sm' : 'min-height-sm2' }}">
+                        <div class="card-header bg-white border-0">
+                            Achievements
+                        </div>
+                        <div class="card-body userlist">
+
+                            <app-achievements></app-achievements>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="(this.friendsService.selectedUser.value)" class="row">
+                <div class="col-12 mb-3 ">
+                    <div
+                        class="card bg-secondary shadow {{ this.router.url === '/home' ? 'min-height-sm' : 'min-height-sm4'}}">
+                        <div class="card-header bg-white border-0">
+                            User Stats
+                        </div>
+                        <div class="card-body userlist text-center stats">
+
+                            <app-friend-stats></app-friend-stats>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--div class="row"-->
+
+            <div class="row" *ngIf="router.url === '/home'">
+                <div class="col-12">
+                    <div class="card bg-secondary shadow min-height-sm3">
+                        <div class="card-header bg-white border-0">
+                            Game Stats
+                        </div>
+                        <div class="card-body user-list-card gamestats">
+
+                            <app-game-stats></app-game-stats>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--div class="col-sm-6  mb-3 "-->
+
+        <div *ngIf="(this.friendsService.selectedUser.value)" class="col-sm-3  mb-3 ">
+            <div class="card bg-secondary shadow min-height-lg">
+                <div class="card-header bg-white border-0">
+                    Game History
+                </div>
+                <div class="card-body user-list-card ">
+                    <app-game-history></app-game-history>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xl-3 mb-3" *ngIf="router.url === '/home'">
+            <div class="card bg-secondary shadow min-height-lg">
+                <div class="card-header bg-white border-0">
+                    Ladder Ranking
+                </div>
+                <div class="card-body user-list-card ">
+
+                    <app-game-ranking></app-game-ranking>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!--div class="row padding"-->
+
+</div>

@@ -1,0 +1,91 @@
+
+.match-history {
+    img {
+        height: 30px;
+        width: 30px;
+        aspect-ratio: 1;
+        object-fit: cover;
+    }
+  
+    .online {
+        border-left-width: 3px;
+        border-left-color: lightgreen;
+        border-left-style: solid;
+    }
+  
+    .busy {
+        border-left-width: 3px;
+        border-left-color: orange;
+        border-left-style: solid;
+    }
+  
+    .offline {
+        border-left-width: 3px;
+        border-left-color: darkred;
+        border-left-style: solid;
+    }
+    .name {
+        font-size: 12px;
+        color: white;
+		font-weight: bold;
+		cursor: pointer;
+		padding-left: 5px;
+		padding-right: 5px;
+		white-space: nowrap;
+		display: block;
+    }
+
+	button {
+        font-size: 12px;
+    }
+    .player {
+      text-align: center;
+	  margin: 0px;
+	  padding: 0px;
+	  overflow: none;
+    }
+
+	  .score-wrapper {
+		text-align: center;
+	  }
+	  
+      .score {
+		  border-bottom-width: 3px;
+		  border-bottom-style: solid;
+		  color: lightgray;
+		  font-size: 22px;
+		  text-align: center;
+		  white-space: nowrap;
+		  margin: 0px;
+		  padding: 0px;
+		  overflow: none;
+		  font-weight: normal;
+      }
+	  .challenge {
+		margin-top: 5px;
+		display: block;
+	  }
+	  .friendly {
+		color: rgb(219, 219, 219);
+	}
+      .ladder {
+		  color: gold;
+	  }
+
+      .game-won {border-bottom-color: lightgreen; }
+      .game-lost {border-bottom-color: darkred; }
+  
+    font-weight: normal;
+    padding-bottom: 10px;;
+    margin-bottom: 10px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #9a9a9a;
+  }
+  
+  .match-history:last-child {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        border-bottom-style: none;
+  }
+  

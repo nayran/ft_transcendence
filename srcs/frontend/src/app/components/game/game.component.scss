@@ -1,0 +1,130 @@
+@import './game-variables.scss';
+
+:root {
+    min-height: 300px;
+}
+
+.table {
+    @include table;
+}
+
+.lines {
+    @include lines;
+}
+
+.menu {
+    font-family: $game-font-family;
+    color: white;
+    position: absolute;
+    left: calc(10%);
+    float: left;
+    text-align: left;
+    margin-top: 10vh;
+
+    &__title {
+        font-size: 4vh;
+        margin-bottom: 30px;
+        margin-right: 3vw;
+		text-transform: uppercase;
+		font-style: italic;
+		color: gold;
+    }
+
+    @include button(30vw, 3vh);
+
+    input {
+        margin-right: 10px;
+        cursor: pointer;
+    }
+}
+
+.subtitle {
+	color: gold;
+	text-transform: capitalize;
+	font-style: italic;
+}
+
+.livegames,
+.instructions {
+    margin-top: 20vh;
+    font-family: $game-font-family;
+    font-size: 2.5vh;
+    color: white;
+    position: absolute;
+    left: calc(60%);
+    text-align: left;
+    border: 0;
+    @include button(210px, 2vh);
+}
+
+.livegames {
+    button {
+        text-align: center;
+    }
+}
+
+.container {
+    margin-top: 15px;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 3vh;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: left;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+.container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+.container input:checked~.checkmark {
+    background-color: #ffc107;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.badge {
+	font-weight: unset;
+}

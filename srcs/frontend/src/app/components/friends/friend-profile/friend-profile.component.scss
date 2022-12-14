@@ -1,0 +1,44 @@
+
+  .card-profile-image {
+    position: relative;
+    margin-top: 30px;
+    img {
+        height: 180px;
+        width: 180px;
+        max-width: 180px;
+        border-radius: .375rem;
+        aspect-ratio: 1;
+        object-fit: cover;
+    }
+}
+ 
+  .card-profile-stats {
+    padding: 1rem 0;
+  }
+  
+  .card-profile-stats>div {
+    margin-right: 1rem;
+    padding: .875rem;
+    text-align: center;
+  }
+  
+  
+  .description {
+    font-size: .875rem;
+  }
+  
+  .heading {
+    font-size: .95rem;
+    font-weight: 600;
+    letter-spacing: .025em;
+    text-transform: uppercase;
+  }
+
+  .rating {
+	margin-left: 5px;
+  }
+
+  .btn-profile {
+	margin-left: 5px;
+	margin-right: 5px;
+  }

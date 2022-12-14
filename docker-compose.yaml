@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+    frontend:
+        build: ./srcs/frontend
+        container_name: frontend
+        ports:
+             - "4200:4200"
+        depends_on:
+            - backend
+        restart: always
+        env_file:
+            - variables.env
+        volumes:
+            - "./srcs/frontend:/frontend"
+
+
+
+    backend:
+        build: ./srcs/backend
+        user: node:node
+        container_name: backend
+        expose: 
+            - "3000"
+        ports:            #this exposes the 3000 port to the host. maybe we should change to
+            - "3000:3000" # expose 3000, which would expose it only docker-compose own network
+        depends_on:
+            - db
+        restart: always
+        env_file:
+            - variables.env
+        volumes:
+            - "./srcs/backend:/backend"
+
+
+    db:
+        image: postgres:latest
+        container_name: postgres
+        volumes:
+            - "./srcs/postgres/data/postgres:/data/postgres"
+        ports:
+            - "5442:5432"
+        expose: 
+            - "3000"
+        env_file:
+            - variables.env
+        restart: always
+
+        

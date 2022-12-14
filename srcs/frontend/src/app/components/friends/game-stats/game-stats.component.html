@@ -1,0 +1,32 @@
+<div class="row">
+	<div class="col">
+		<span class="badge statsitem text-light">
+			Total Matches Played
+			<span class="badge rounded-pill bg-warning text-dark">{{this.friendsService.gameStats.value.matches}}</span>
+		</span>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+		<span class="badge statsitem text-light">
+			Users Registered
+			<span class="badge rounded-pill bg-warning text-dark">{{this.friendsService.gameStats.value.users}}</span>
+		</span>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+		<span class="badge statsitem text-light">
+				Login Count
+				<span class="badge rounded-pill bg-warning text-dark">{{this.friendsService.gameStats.value.logins}}</span>
+		</span>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+		<span class="badge statsitem text-light">
+				Currently Online
+				<span class="badge rounded-pill bg-warning text-dark">{{this.onlineService.getOnlineCount()}}</span>
+		</span>
+	</div>
+</div>

@@ -1,0 +1,72 @@
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-myfriends" role="tabpanel" aria-labelledby="nav-home-myfriends"
+        tabindex="0">
+        <div class="card-body user-list-card ">
+
+
+
+            <div *ngFor="let item of this.friendsService.friendsList.value"
+                class="row user-list d-flex align-items-center">
+                <div class="col-5">
+					<app-thumbnail [username]="item.username" [avatar]="item.avatar_url"></app-thumbnail>
+                </div>
+                <div class="col-7 align-middle">
+                    <span class="align-middle align-self-center name">
+                        <span (click)="this.friendsService.loadUser(item.username)"
+                            class="align-middle align-self-center name">{{ item.username }}</span>
+                    </span>
+                </div>
+             </div>
+
+
+
+        </div>
+    </div>
+    <div class="tab-pane fade" id="nav-requests" role="tabpanel" aria-labelledby="nav-requests-tab" tabindex="0">
+        <div class="card-body user-list-card">
+
+
+            <div *ngFor="let item of this.friendsService.requestsList.value"
+                class="row user-list d-flex align-items-center">
+                <div class="col-3">
+					<app-thumbnail [username]="item.username" [avatar]="item.avatar_url"></app-thumbnail>
+                </div>
+                <div class="col-6 align-middle">
+                    <span class="align-middle align-self-center name">
+                        <span (click)="this.friendsService.loadUser(item.username)"
+                            class="align-middle align-self-center name">{{ item.username }}</span>
+                    </span>
+                </div>
+                <div class="col-3">
+                    <button *ngIf="item.by_me == true" (click)="this.friendsService.delFriendship(item.username)"
+                        type="button" class="btn btn-danger">Cancel</button>
+                    <button *ngIf="item.by_me == false" (click)="this.friendsService.delFriendship(item.username)"
+                        type="button" class="btn btn-danger">Deny</button>
+                    <button *ngIf="item.by_me == false" (click)="this.friendsService.acceptFriendship(item.username)"
+                        type="button" class="btn btn-success">Accept</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="tab-pane fade" id="nav-search" role="tabpanel" aria-labelledby="nav-search-tab" tabindex="0">
+        <div class="card-header bg-white border-0">
+            <div class="search-box">
+                <input type="text" (keyup)="updateUserList($event)" class="search-input" placeholder="Search users...">
+                <fa-icon class="search-btn" [icon]="searchIcon"></fa-icon>
+            </div>
+        </div>
+        <div class="card-body user-list-card">
+            <div *ngFor="let item of this.friendsService.userList.value"
+                class="row user-list d-flex align-items-center">
+                <div class="col-5">
+					<app-thumbnail [username]="item.username" [avatar]="item.avatar_url"></app-thumbnail>
+                </div>
+                <div class="col-7 align-middle">
+                    <span (click)="this.friendsService.loadUser(item.username)"
+                        class="align-middle align-self-center name">{{ item.username }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+    background-color: #555555;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    overflow: hidden;
+}
+
+.main {
+    /* Same as the width of the sidebar */
+    padding: 0px;
+    height: calc(100% - 100px);
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@media screen and (max-width: 1000px) {
+    .main {
+        margin: 0px;
+    }
+}
+
+.page-content {
+    overflow-y: scroll;
+    position: absolute;
+    max-height: 100%;
+    width: 100%;
+}

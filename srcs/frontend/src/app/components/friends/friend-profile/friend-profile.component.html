@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+	<div class="col-12 order-lg-2 text-center">
+	<div class="card-profile-image">
+		<app-thumbnail [dropdown]="false" [username]="this.friendsService.stats.value?.username ?? ''" size="full" [avatar]="this.friendsService.stats.value?.avatar_url ?? ''"></app-thumbnail>
+	</div>
+	</div>
+	</div>
+	<div class="col-12 pt-0 pt-md-2 mt-0">
+		<div class="row ">
+			<div class="col mt-2 mb-0 text-center">
+			<h1 class="m-0">{{this.friendsService.stats.value?.username}}</h1>
+			</div>
+		</div>
+		<div class="row  text-center mt-0" >
+			<div class="col">
+			<h3>{{this.friendsService.stats.value?.fullname}}</h3>
+			</div>
+		</div>
+		<div class="row  text-center mt-2"  *ngIf="this.friendsService.stats.value?.username != this.authService.userSubject.value?.username">
+			<div class="col">
+				<button *ngIf="this.friendsService.friendStatus.value == 0" (click)="this.friendsService.addFriendship()" type="button" class="btn btn-info btn-profile">Add Friend</button>
+				<button *ngIf="this.friendsService.friendStatus.value == 1" (click)="this.friendsService.delFriendship()" type="button" class="btn btn-danger btn-profile">Cancel Request</button>
+				<button *ngIf="this.friendsService.friendStatus.value == 2" (click)="this.friendsService.acceptFriendship()" type="button" class="btn btn-success btn-profile">Accept Friend</button>
+				<button *ngIf="this.friendsService.friendStatus.value == 2" (click)="this.friendsService.delFriendship()" type="button" class="btn btn-danger btn-profile">Deny Friendship</button>
+				<button *ngIf="this.friendsService.friendStatus.value == 3" (click)="this.friendsService.delFriendship()" type="button" class="btn btn-danger btn-profile">Remove Friend</button>
+				<button *ngIf="this.friendsService.friendBlocked.value == false" (click)="this.friendsService.blockUser()" type="button" class="btn btn-secondary btn-dark">Block</button>
+				<button *ngIf="this.friendsService.friendBlocked.value == true" (click)="this.friendsService.unblockUser()" type="button" class="btn btn-secondary btn-dark">Unblock</button>
+			</div>
+		</div>
+		<div class="row rating mt-4">
+			<div class="col">
+				<span class="rating"><i>rating: {{this.friendsService.stats.value?.rating}}</i></span><br>
+				<span class="rating"><i>player since: {{this.friendsService.stats.value?.created_at | date}}</i></span>
+			</div>
+		</div>
+	</div>

@@ -1,0 +1,59 @@
+<app-alerts></app-alerts>
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark text-light">
+
+  <div id="logo" class="img-fluid" alt="logo"></div>
+
+  <div class="left-menu">
+    <ul class="navbar-nav me-auto mb-lg-0">
+
+      <li class="nav-item" routerLink="/home" routerLinkActive="link-active">
+        <span class="nav-link">
+          <fa-icon class="fa" [icon]="icons[0]"></fa-icon><span class="nav-title">HOME</span>
+        </span>
+      </li>
+
+      <li class="nav-item" routerLink="/pong" routerLinkActive="link-active">
+        <span class="nav-link">
+          <fa-icon class="nav-link" class="fa" [icon]="icons[1]"></fa-icon><span class="nav-title">PONG</span>
+        </span>
+      </li>
+
+      <li class=" nav-item" routerLink="/letschat" href="#" routerLinkActive="link-active">
+        <span class="nav-link">
+          <fa-icon class="nav-link" class="fa" [icon]="icons[2]"></fa-icon><span class="nav-title">CHAT</span>
+        </span>
+      </li>
+
+      <li class="nav-item" routerLink="/friends" href="#" routerLinkActive="link-active">
+        <span class="nav-link">
+          <fa-icon class="nav-link" class="fa" [icon]="icons[3]"></fa-icon><span class="nav-title">FRIENDS</span>
+        </span>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="right-menu">
+
+    <div class="profile">
+      <div class="username">
+        <h4 class="mb-2"><strong>{{ this.userSubject.value?.username }}</strong></h4>
+      </div>
+      <div class="control-buttons">
+        <ul class="navbar-nav flex-row">
+          <li routerLink="/profile" routerLinkActive="link-active">
+            <fa-icon [icon]="icons[4]"></fa-icon>
+          </li>
+          <li (click)="logout()">
+            <fa-icon [icon]="icons[5]"></fa-icon>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="right-controls">
+      <img src="/backend/{{ this.userSubject.value?.avatar_url }}" class="avatar rounded-circle" alt="Avatar">
+    </div>
+
+  </div>
+
+</nav>

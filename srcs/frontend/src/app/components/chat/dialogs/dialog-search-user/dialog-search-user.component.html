@@ -1,0 +1,23 @@
+<mat-card-title>Search user</mat-card-title>
+<mat-card>
+    <mat-card-content>
+        <mat-form-field>
+            <input matInput placeholder="Search" aria-label="State" [matAutocomplete]="auto"
+                [formControl]="searchUsersCtrl" (input)="onInputChange()">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="getUsername"
+                (optionSelected)='updateMySelection()'>
+                <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
+                <ng-container *ngIf="!isLoading">
+                    <mat-option *ngFor="let user of filteredUsers" [value]="user">
+                        <span><img src="backend/{{ user.avatar_url }}"
+                                class="rounded-circle avatar"><b>{{user.username}}</b> </span>
+                    </mat-option>
+                </ng-container>
+            </mat-autocomplete>
+        </mat-form-field>
+        <div class=" button">
+            <button mat-raised-button type="submit" [disabled]="disabledChatButton"
+                (click)="checkIfAlreadyExist()">Chat</button>
+        </div>
+    </mat-card-content>
+</mat-card>

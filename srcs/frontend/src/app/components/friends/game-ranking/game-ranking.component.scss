@@ -1,0 +1,82 @@
+
+ .user-list-card {
+	padding:5px;
+ } 
+ .row-3 {
+	padding: 2px;
+ }
+  .user-list-image {
+        height: 30px;
+        width: 30px;
+        aspect-ratio: 1;
+        object-fit: cover;
+    }
+
+    .name {
+        font-size: 14px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+    }
+
+    button {
+        font-size: 12px;
+    }
+
+	.user-list {
+    padding-bottom: 10px;;
+    margin-bottom: 10px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #9a9a9a;
+}
+.user-list-rank {
+	width: 20px;
+	float: right;
+}
+
+
+.user-list:last-child {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        border-bottom-style: none;
+}
+
+.rank {
+	display: flex;
+	.number {
+		font-size: 20px;
+		color: darkgray;
+		p {
+			margin: 0;
+			margin-top:5px;
+		}
+		.nb1 {
+			color: gold;
+			font-size: 24px;
+		}
+		.nb2 {
+			color: rgb(219, 219, 219);
+			font-size: 24px;
+		}
+		.nb3 {
+			color: rgb(255, 210, 203);
+			font-size: 24px;
+		}
+	}
+	.ordinal {
+		vertical-align: top;
+		font-size: 10px;
+		color: darkgray;
+
+		.nb1 {	color: gold; }
+		.nb2 {	color: rgb(219, 219, 219);	}
+		.nb3 {	color: rgb(255, 210, 203);	}
+	}
+
+}
+
+.min-margin {
+	padding-left: 2px;
+	padding-right: 2px;
+}

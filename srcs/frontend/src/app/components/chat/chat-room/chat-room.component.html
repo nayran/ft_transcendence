@@ -1,0 +1,107 @@
+<div *ngIf="!isRoomNulled(); else no_chatroom_selected">
+	<div class="row">
+
+		<div [ngClass]="{'col-lg-12':isConversation(chatRoom), 'col-lg-9':!isConversation(chatRoom)}">
+			<div class="row ">
+
+				<div class="col text-left roominfo">
+					<!--chat description-->
+					<span *ngIf="isConversation(chatRoom); else group_conversation">
+						<div *ngFor="let member of chatRoom.members">
+							<div *ngIf="member.user.username != this.myUser.username" class="row listitem roomname">
+								<span>Chatting with {{member.user.username}}</span>
+							</div>
+						</div>
+					</span>
+					<ng-template #group_conversation>
+
+						<div class="col-12 roomname">
+							{{chatRoom.name}}
+							<fa-icon class="gearicon" *ngIf="canOpenRoomSetting(myMember)" title="{{chatRoom.name}} settings" [icon]="faGears"
+								(click)="onOpenRoomSetting()"></fa-icon>
+						</div>
+						<div class="col-12 roomdescription">
+							{{chatRoom.description}}
+						</div>
+
+
+
+
+					</ng-template>
+
+
+
+				</div>
+				<div class="col-12">
+					<!--message screen-->
+					<div #messagesScroller class="message">
+						<span *ngFor="let message of (messagesPaginate$ | async); let last = last">
+							<app-chat-message [message]="message" [myUser]="this.myUser"></app-chat-message>
+							{{last ? scrollToBottom() : ''}}
+						</span>
+					</div>
+				</div>
+				<div class="col-12">
+					<!--message messagebar-->
+					<div class="flexstart sendmessage">
+						<div class="input-group mb-3">
+							<input matInput class="form-control" [formControl]="chatMessage" type="text"
+								autoComplete='off' (keydown.enter)="sendMessage()">
+							<button class="btn btn-secondary sendbutton" [disabled]="!chatMessage.valid"
+								(click)="sendMessage()">
+								<mat-icon>send</mat-icon>
+							</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="col-lg-3" *ngIf="!isConversation(chatRoom)">
+			<div class="row chatmemberrow">
+				<div class="col-12 nomargin">
+					<!--message userlist-->
+
+					<div class="card text-dark bg-light mb-3 ">
+						<div class="card-header">Room Members</div>
+						<div class="card-body chatmembercard">
+							<mat-selection-list #list [multiple]="false" (selectionChange)="onMemberChange($event)">
+								<mat-list-option *ngFor="let member of members$ | async" [value]="member">
+									<img src=" backend/{{ member.user.avatar_url }}" class="avatar rounded-circle">
+									<fa-icon class="faOwner" *ngIf="isOwner(member)" [icon]="fasStar"></fa-icon>
+									<fa-icon class="faAdmin" *ngIf="isAdmin(member)" [icon]="farStar"></fa-icon>
+									<div class="faUser" *ngIf="!(isAdmin(member)) && !(isOwner(member))"></div>
+									{{member.user.username}}
+									<mat-divider></mat-divider>
+								</mat-list-option>
+							</mat-selection-list>
+						</div>
+
+
+						<div class="card-body">
+							<div class="col-12 roompanel">
+								<app-panel-chat-room *ngIf="selectedMember" [chatRoom]="chatRoom" [myUser]="myUser"
+									[selectedMember]="selectedMember" [myMember]="myMember">
+								</app-panel-chat-room>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</div>
+
+
+</div>
+
+<ng-template #no_chatroom_selected>
+	<mat-error>No Chatroom Selected</mat-error>
+</ng-template>

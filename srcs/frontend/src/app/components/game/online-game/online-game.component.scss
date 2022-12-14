@@ -1,0 +1,25 @@
+@import '../game-variables.scss';
+
+.table {
+    @include table;
+}
+
+.waiting {
+    color: white;
+    font-family: $game-font-family;
+    position: absolute;
+    margin-top: 100px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 3vh;
+    text-align: center;
+    min-height: 50px;
+}
+
+.quitfinish {
+	margin-top: 30vh;
+}
+
+@include button(100%, 3vh);

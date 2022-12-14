@@ -1,0 +1,9 @@
+<div class="achievement-container" *ngFor="let item of this.friendsService.stats.value?.achievements">
+	<img class="achievement"  matTooltip="{{item.description}}" src="/assets/images/achievements/{{item.achievement}}.png">
+</div>
+
+<div *ngIf="!(this.friendsService.stats.value?.achievements?.length)" class="row d-flex align-items-center">
+	<div  class="col-12 text-center text-warning ">
+		No achievements yet
+	</div>
+</div>

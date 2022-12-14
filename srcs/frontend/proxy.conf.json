@@ -1,0 +1,34 @@
+{
+  "/auth/*": {
+    "target": "http://backend:3000/",
+    "secure": false
+  },
+  "/backend": {
+    "target": "http://backend:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/backend": ""
+    }
+  },
+  "/game": {
+    "target": "http://backend:3000",
+    "secure": false,
+    "changeOrigin": true,
+	"ws": true,
+	"logLevel": "debug"
+  },
+  "/chat": {
+    "target": "http://backend:3000",
+    "secure": false,
+    "changeOrigin": true,
+	"ws": true,
+	"logLevel": "debug"
+  },
+  "/socket.io": {
+	"target": "http://backend:3000",
+	"secure": false,
+	"changeOrigin": true,
+	"ws": true
+  }
+}

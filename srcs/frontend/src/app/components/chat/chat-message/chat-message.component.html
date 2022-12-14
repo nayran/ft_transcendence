@@ -1,0 +1,28 @@
+<div class="message">
+		<div *ngIf="isMyUser() else elseBlock" class="ownContainer">
+			<p class="ownMessage">
+				<span *ngIf="(this.created_at | date: 'M/d/yy') == (this.today | date: 'M/d/yy') else elseBlock2">
+					<em style="font-size:smaller;">{{message.created_at | date :'h:mm a'}}</em>
+				</span>
+				<ng-template #elseBlock2>
+					<em style="font-size:smaller;">{{message.created_at | date :'M/d h:mm a'}}</em>
+				</ng-template>
+				<br>
+				{{message.message}}
+			</p>
+		</div>
+		<ng-template #elseBlock>
+			<app-thumbnail [username]="this.username" size="small" [light]="true" [avatar]="this.avatar"></app-thumbnail>
+			<p class="otherMessage">
+				<strong style="font-size:small; margin-right: 5px;">{{username}}</strong>
+				<span *ngIf="(this.created_at | date: 'M/d/yy') == (this.today | date: 'M/d/yy') else elseBlock2">
+					<em style="font-size:smaller;">{{message.created_at | date :'h:mm a'}}</em>
+				</span>
+				<ng-template #elseBlock2>
+					<em style="font-size:smaller;">{{message.created_at | date :'M/d h:mm a'}}</em>
+				</ng-template>
+				<br>
+				{{message.message}}
+			</p>
+		</ng-template>
+</div>

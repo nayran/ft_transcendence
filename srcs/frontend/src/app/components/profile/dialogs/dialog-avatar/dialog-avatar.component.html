@@ -1,0 +1,19 @@
+    <em>
+        <small>Accepted formats : .jpg .jpeg .png</small><br>
+        <small>Max size : 2MB</small>
+    </em>
+    <p></p>
+
+    <div class="text-center">
+        <input class="form-control" type="file" accept=".jpg,.jpeg,.png" (change)="onChange($event)">
+        <mat-error *ngIf="true">{{ errorMsg }}</mat-error>
+
+        <br>
+        <div class="button">
+            <button class="btn btn-secondary" (click)="onUpload()" [disabled]="!editmode ? 'disabled' : null">Upload</button>
+        </div>
+    </div>
+
+    <div class="container" *ngIf="loading">
+        <h3>Loading ...</h3>
+    </div>
